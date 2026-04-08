@@ -1,5 +1,4 @@
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
-import { FlashList } from '@shopify/flash-list';
+import { Alert, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useAppStore } from '@/store/useAppStore';
 import { getTheme } from '@/theme/tokens';
 
@@ -11,9 +10,8 @@ export default function HistoryScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: palette.background }]}>
-      <FlashList
+      <FlatList
         data={history}
-        estimatedItemSize={80}
         ListEmptyComponent={<Text style={{ color: palette.mutedText, margin: 16 }}>Chưa có lượt tra cứu nào.</Text>}
         renderItem={({ item }) => (
           <Pressable
@@ -28,6 +26,7 @@ export default function HistoryScreen() {
             </Pressable>
           </Pressable>
         )}
+        keyExtractor={(item) => item.id}
       />
       <View style={[styles.banner, { backgroundColor: palette.card, borderColor: palette.border }]}>
         <Text style={{ color: palette.mutedText }}>Banner Ad (ẩn khi PRO)</Text>
