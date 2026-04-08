@@ -27,3 +27,27 @@ npm run start
 - Thay placeholder ad bằng `react-native-google-mobile-ads` Native/Banner component.
 - Kết nối RevenueCat thật trong action `upgradeToPro`.
 - Thay `trySearch` mock bằng API thật qua `API_BASE_URL`.
+
+
+## Nâng cấp Expo SDK 55 (tháng 02/2026)
+
+Đã đồng bộ các package cốt lõi theo Expo SDK 55 để giảm rủi ro xung đột phiên bản:
+
+- `expo` `~55.0.12`
+- `expo-router` `~55.0.11`
+- `react-native` `0.83.4`
+- `react` `19.2.0`
+- `react-native-gesture-handler` `~2.30.0`
+- `react-native-reanimated` `4.2.1` + `react-native-worklets` `0.7.2`
+- `expo-linear-gradient` `~55.0.11`
+- `@react-native-async-storage/async-storage` `2.2.0`
+- `@shopify/flash-list` `2.0.2`
+
+Khuyến nghị sau khi pull code:
+
+```bash
+npm install
+npx expo-doctor@latest
+```
+
+> Lưu ý: các thư viện native bên thứ ba như `react-native-google-mobile-ads`, `react-native-onesignal`, `react-native-purchases` nên được kiểm tra thêm bằng `expo-doctor` và build thật trên Android/iOS vì chúng có chu kỳ cập nhật riêng.
